@@ -27,7 +27,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ /*ST_ModuleA.class, ST_ModuleB.class, ST_ModuleC.class */ /* add more system test classes when they are ready */ })
+@SuiteClasses({ /*ST_ModuleA.class, ST_ModuleB.class, ST_ModuleC.class */ })
 public class SystemTestSuite {
 
 }
