@@ -1,5 +1,5 @@
 /**	
-Copyright (c) 2018 David Phung
+Copyright (c) 2018 Markus Borg
 
 Building on work by Philip Johnson and Keone Hiraide, University of Hawaii.
 https://ics613s13.wordpress.com/
@@ -23,35 +23,35 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bmb;
+package se.lth.cs.etsa02.basicmeleebot.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
+import robocode.BattleResults;
 import robocode.control.events.BattleCompletedEvent;
-import robocode.control.events.RoundEndedEvent;
-import robocode.control.events.RoundStartedEvent;
-import robocode.control.events.TurnEndedEvent;
-import robocode.control.snapshot.IRobotSnapshot;
 import robocode.control.testing.RobotTestBed;
 
 /**
- * Test class skeleton for RobotTestbed.
+ * Test class for the BasicMeleeBot.
  *
  * @author Markus Borg
  *
  */
 @RunWith(JUnit4.class)
-public class ST_ModuleB extends RobotTestBed {
+public class ST_Q_MeleeSpinBots extends RobotTestBed {
 	
 	// constants used to configure this system test case
-	private String ROBOT_UNDER_TEST = "teamXX.ProtoBot*";
-	private String ENEMY_ROBOTS = "sample.SittingDuck";
-	private int NBR_ROUNDS = 1;
-	
+	private String ROBOT_UNDER_TEST = "se.lth.cs.etsa02.basicmeleebot.BasicMeleeBot*";
+	private String ENEMY_ROBOTS = "sample.SpinBot,sample.SpinBot,sample.SpinBot";
+	private int NBR_ROUNDS = 100;
+	private double THRESHOLD = 0.26; // win rate in melee battles against 3 SpinBots
+	private boolean PRINT_DEBUG = false;
+		
 	/**
-	 * The names of the robots robots in the battle are listed.
+	 * The names of the robots that want battling is specified.
 	 * 
 	 * @return The names of the robots we want battling.
 	 */
@@ -61,7 +61,7 @@ public class ST_ModuleB extends RobotTestBed {
 	}
 
 	/**
-	 * Select the amount of rounds that we want our robots to battle for.
+	 * Pick the amount of rounds that we want our robots to battle for.
 	 *
 	 * @return Amount of rounds we want to battle for.
 	 */
@@ -70,42 +70,6 @@ public class ST_ModuleB extends RobotTestBed {
 		return NBR_ROUNDS;
 	}
 
-	/**
-	 * Called after every turn.
-	 */
-	@Override
-	public void onTurnEnded(TurnEndedEvent event) {
-		IRobotSnapshot egoBot = event.getTurnSnapshot().getRobots()[0];
-		IRobotSnapshot firstEnemy = event.getTurnSnapshot().getRobots()[1];
-		// Default does nothing. Add some assertion?
-	}
-	
-	/**
-	 * Called before each round.
-	 */
-	@Override
-	public void onRoundStarted(RoundStartedEvent event) {
-		IRobotSnapshot egoBot = event.getStartSnapshot().getRobots()[0];
-		IRobotSnapshot firstEnemy = event.getStartSnapshot().getRobots()[1];
-		// Default does nothing. Add some assertion?
-	}
-	
-	/**
-	 * Called after each round.
-	 */
-	@Override
-	public void onRoundEnded(RoundEndedEvent event) {		
-		// Default does nothing. Add some assertion?
-	}
-
-	/**
-	 * Called after the battle.
-	 */
-	@Override
-	public void onBattleCompleted(BattleCompletedEvent event) {
-		// Default does nothing. Add some assertion?
-	}
-	
 	/**
 	 * Returns a comma or space separated list like: x1,y1,heading1,
 	 * x2,y2,heading2, which are the coordinates and heading of robot #1 and #2.
@@ -137,7 +101,7 @@ public class ST_ModuleB extends RobotTestBed {
 	 */
 	@Override
 	public boolean isDeterministic() {
-		return false;
+		return true;
 	}
 
 	/**
@@ -170,5 +134,33 @@ public class ST_ModuleB extends RobotTestBed {
 	protected void runTeardown() {
 		// Default does nothing.
 	}
+	
+	/**
+	 * Tests to see if our robot won most rounds.
+	 * 
+	 * @param event
+	 *            Holds information about the battle has been completed.
+	 */
+	@Override
+	public void onBattleCompleted(BattleCompletedEvent event) {
+		// all battle results
+		BattleResults[] battleResults = event.getIndexedResults();
+		// BMB results
+		BattleResults bmbResults = battleResults[0];
 
+		// check that BMB won the overall battle
+		String robotName = bmbResults.getTeamLeaderName();		
+		assertEquals("Basic Melee Bot should be first in the results array",
+				"se.lth.cs.etsa02.basicmeleebot.BasicMeleeBot*", robotName);
+		
+		// check that the required win rate has been reached
+		double bmbWinRate = (((double) bmbResults.getFirsts()) / NBR_ROUNDS);
+		
+		if (PRINT_DEBUG) {
+			System.out.println("BMB won " + bmbResults.getFirsts() + " out of " + NBR_ROUNDS + 
+					" rounds (win rate = " + bmbWinRate + ")");
+		}
+		assertTrue("Basic Melee Bot should have a win rate of at least 26% in this melee battle",
+				bmbWinRate >= THRESHOLD);
+	}
 }

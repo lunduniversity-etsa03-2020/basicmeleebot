@@ -1,5 +1,5 @@
 /**	
-Copyright (c) 2017-2020 Markus Borg
+Copyright (c) 2017 Markus Borg
 
 Building on work by Mathew A. Nelson and Robocode contributors.
 
@@ -21,12 +21,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package bmb;
+package se.lth.cs.etsa02.basicmeleebot.test;
 
 import robocode.ScannedRobotEvent;
 
 /**
- * MockScannedRobotEvent - a mock object to enable unit testing for ETSA03.
+ * MockBot - a mock robot to enable unit testing for ETSA02.
  *
  * @author Markus Borg
  */

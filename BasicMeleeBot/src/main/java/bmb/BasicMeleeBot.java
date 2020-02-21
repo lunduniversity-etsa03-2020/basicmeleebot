@@ -1,5 +1,5 @@
 /**	
-Copyright (c) 2020 Markus Borg
+Copyright (c) 2018 David Phung
 
 Building on work by Mathew A. Nelson and Robocode contributors.
 
@@ -22,32 +22,48 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bmb;
+package se.lth.cs.etsa02.basicmeleebot;
 
-import etsa03.*;
+import se.lth.cs.etsa02.RobotColors;
 import robocode.TeamRobot;
 import robocode.MessageEvent;
 import robocode.RobotDeathEvent;
 import robocode.ScannedRobotEvent;
 
 /**
- * @author Markus Borg
+ * @author David Phung
  * 
- * Barebone robot prepared for the ETSA03 project.
+ * Example robot for ETSA02. A melee bot implemented following an object oriented design.
  */
 public class BasicMeleeBot extends TeamRobot {
+
+	private EnemyTracker enemyTracker;
+	private PositioningSystem positioningSystem;
+	private MovementSystem movementSystem;
+	private TargetingSystem targetingSystem;
 	
 	/**
 	 * The main loop controlling the robot behavior.
 	 */
 	@Override
 	public void run() {
-		ModuleA subSysA = new ModuleA();
-		ModuleB subSysB = new ModuleB();
-		ModuleC subSysC = new ModuleC();
+		enemyTracker = new EnemyTracker(this);
+		positioningSystem = new PositioningSystem(getBattleFieldWidth(), getBattleFieldHeight());
+		movementSystem = new MovementSystem(this, enemyTracker, positioningSystem);
+		targetingSystem = new TargetingSystem(enemyTracker, this);
 		
+		setAdjustGunForRobotTurn(true);
+		setAdjustRadarForGunTurn(true);
+		
+		setTurnRadarRight(Double.POSITIVE_INFINITY);
+		targetingSystem.update();
+		movementSystem.update();
+		execute();
+
 		while (true) {
 			setTurnRadarRight(Double.POSITIVE_INFINITY);
+			targetingSystem.update();
+			movementSystem.update();
 			execute();
 		}
 	}
@@ -55,10 +71,15 @@ public class BasicMeleeBot extends TeamRobot {
 	/**
 	 * Describes the action taken when a robot has been scanned.
 	 * 
-	 * @param e The ScannedRobotEvent provided by Robocode.
+	 * @param event The ScannedRobotEvent provided by Robocode.
 	 */
 	@Override
-	public void onScannedRobot(ScannedRobotEvent e) {
+	public void onScannedRobot(ScannedRobotEvent event) {
+		if (isTeammate(event.getName())) {
+			return;
+		}
+		
+		enemyTracker.addEnemy(event);
 	}
 	
 	/**
@@ -67,13 +88,13 @@ public class BasicMeleeBot extends TeamRobot {
 	 * @param event The RobotDeathEvent provided by Robocode.
 	 */
 	@Override
-	public void onRobotDeath(RobotDeathEvent e) {
+	public void onRobotDeath(RobotDeathEvent event) {
+		enemyTracker.removeEnemy(event.getName());
 	}
 	
 	/**
-	 * onMessageReceived: Describes how incomming messages are treated.
+	 * onMessageReceived:  What to do when our leader sends a message.
 	 */
-	@Override
 	public void onMessageReceived(MessageEvent e) {
 		// Set our colors
 		if (e.getMessage() instanceof RobotColors) {

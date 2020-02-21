@@ -22,20 +22,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bmb;
+package se.lth.cs.etsa02.basicmeleebot;
 
 import java.awt.geom.Point2D;
 
 import robocode.Robot;
 import robocode.ScannedRobotEvent;
 
-/**
- * 
- * @author David Phung
- * Static utility class for basic mathematical operations.
- * Feel free to extend this class with additional methods.
- *
- */
 public class MathUtils {
 	
 	/**
@@ -52,7 +45,7 @@ public class MathUtils {
 	}
 	
 	/** 
-	 * Computes the angle in radians between the y-axis (equivalent to north in Robocode's coordinate system) and the vector
+	 * Computes the angle in radians between the y-axis (equivalent to north in robocode's coordinate system) and the vector
 	 * formed by the two points. (The vector points from p1 to p2).
 	 * @param p1 The first point.
 	 * @param p2 The second point.
@@ -65,7 +58,7 @@ public class MathUtils {
 	}
 	
 	/**
-	 * Computes the angle in degree between the y-axis (equivalent to north in Robocode's coordinate system) and the vector
+	 * Computes the angle in degree between the y-axis (equivalent to north in robocode's coordinate system) and the vector
 	 * formed by the two points. (The vector points from p1 to p2).
 	 * @param p1 The first point.
 	 * @param p2 The second point.
