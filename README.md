@@ -1,9 +1,10 @@
-# introsofteng-protobot
+# BasicMeleeBot
 [![Build Status](https://travis-ci.com/lunduniversity/introsofteng-protobot.svg?branch=gradle)](https://travis-ci.com/lunduniversity/introsofteng-protobot)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9430e0281aa919dd591f/maintainability)](https://codeclimate.com/github/lunduniversity-etsa03-2020/basicmeleebot/maintainability)
 
 Supplementary teaching material for "Introduction to Software Engineering" at Lund University, LTH. http://cs.lth.se/etsa03/
 
-This repository contains a barebone robot for the LU Rumble. Use this template repository to get a starting point for the LU Rumble project.
+This repository contains BasicMeleeBot. This repository is an example used to inspire development in the LU Rumble project.
 
 ## License
 
