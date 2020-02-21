@@ -3,7 +3,7 @@ jdk:
  - openjdk8
 
 before_install:
- - cd ProtoBot
+ - cd BasicMeleeBot
  - pwd
  - ls -la
  - chmod +x gradlew
