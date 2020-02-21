@@ -20,7 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package teamXX;
+package bmb;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

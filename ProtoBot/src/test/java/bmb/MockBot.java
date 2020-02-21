@@ -21,17 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package teamXX;
+package bmb;
 
+import bmb.*;
 import etsa03.*;
-import teamXX.*;
 
 /**
  * MockBot - a mock robot to enable unit testing for ETSA02.
  *
  * @author Markus Borg
  */
-public class MockBot extends ProtoBot {
+public class MockBot extends BasicMeleeBot {
 	
 	private String name;
 	private double fakeEnergy;

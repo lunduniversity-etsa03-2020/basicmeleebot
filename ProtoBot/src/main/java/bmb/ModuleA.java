@@ -1,6 +1,6 @@
-package teamXX;
+package bmb;
 
-public class ModuleB {
+public class ModuleA {
 
 	public void methodA() {
 		

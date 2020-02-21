@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package teamXX;
+package bmb;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.runner.RunWith;

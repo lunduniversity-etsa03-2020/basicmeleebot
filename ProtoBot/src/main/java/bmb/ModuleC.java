@@ -1,4 +1,4 @@
-package teamXX;
+package bmb;
 
 public class ModuleC {
 

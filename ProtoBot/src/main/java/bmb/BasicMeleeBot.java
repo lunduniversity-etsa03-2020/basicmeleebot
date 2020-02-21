@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package teamXX;
+package bmb;
 
 import etsa03.*;
 import robocode.TeamRobot;
@@ -35,7 +35,7 @@ import robocode.ScannedRobotEvent;
  * 
  * Barebone robot prepared for the ETSA03 project.
  */
-public class ProtoBot extends TeamRobot {
+public class BasicMeleeBot extends TeamRobot {
 	
 	/**
 	 * The main loop controlling the robot behavior.
