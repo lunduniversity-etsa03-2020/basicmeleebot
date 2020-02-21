@@ -21,8 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-
-package bmb.test;
+package bmb;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -33,8 +32,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import se.lth.cs.etsa02.basicmeleebot.PositioningSystem;
-import se.lth.cs.etsa02.basicmeleebot.PositioningSystem.Wall;
+import bmb.PositioningSystem.Wall;
 
 public class PositioningSystemTest {
 	

@@ -22,13 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bmb.test;
+package bmb;
 
 import static org.junit.Assert.assertEquals;
 import java.awt.geom.Point2D;
 import org.junit.Test;
-
-import se.lth.cs.etsa02.basicmeleebot.MathUtils;
 
 public class MathUtilsTest {
 

@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bmb.test;
+package bmb;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -30,10 +30,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import se.lth.cs.etsa02.basicmeleebot.EnemyTracker;
-import se.lth.cs.etsa02.basicmeleebot.MovementSystem;
-import se.lth.cs.etsa02.basicmeleebot.PositioningSystem;
 
 public class MovementSystemTest {
 
