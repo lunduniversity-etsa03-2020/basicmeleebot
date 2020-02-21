@@ -1,6 +1,7 @@
 # BasicMeleeBot
 [![Build Status](https://travis-ci.com/lunduniversity/introsofteng-protobot.svg?branch=gradle)](https://travis-ci.com/lunduniversity/introsofteng-protobot)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9430e0281aa919dd591f/maintainability)](https://codeclimate.com/github/lunduniversity-etsa03-2020/basicmeleebot/maintainability)
+[![codecov](https://codecov.io/gh/lunduniversity-etsa03-2020/basicmeleebot/branch/master/graph/badge.svg)](https://codecov.io/gh/lunduniversity-etsa03-2020/basicmeleebot)
 
 Supplementary teaching material for "Introduction to Software Engineering" at Lund University, LTH. http://cs.lth.se/etsa03/
 
