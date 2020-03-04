@@ -18,3 +18,7 @@ before_install:
 script:
  - ./gradlew build
  - ./gradlew jacocoTestReport
+
+after_script:
+ - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage build/customJacocoReportDir/test/jacocoTestReport.xml --input-type jacoco
+ - ./cc-test-reporter upload-coverage
