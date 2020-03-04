@@ -2,6 +2,10 @@ language: java
 jdk: 
  - openjdk8
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=b729d4f168fd77159b249e93931ad1277863e15ace2d62318c5f7b8c30c51d69
+    
 before_install:
  - cd BasicMeleeBot
  - pwd
