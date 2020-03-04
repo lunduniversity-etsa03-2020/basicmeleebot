@@ -1,5 +1,5 @@
 # BasicMeleeBot
-[![Build Status](https://travis-ci.com/lunduniversity/introsofteng-protobot.svg?branch=gradle)](https://travis-ci.com/lunduniversity/introsofteng-protobot)
+[![Build Status](https://travis-ci.com/lunduniversity-etsa03-2020/basicmeleebot.svg?branch=master)](https://travis-ci.com/lunduniversity-etsa03-2020/basicmeleebot)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9430e0281aa919dd591f/maintainability)](https://codeclimate.com/github/lunduniversity-etsa03-2020/basicmeleebot/maintainability)
 [![codecov](https://codecov.io/gh/lunduniversity-etsa03-2020/basicmeleebot/branch/master/graph/badge.svg)](https://codecov.io/gh/lunduniversity-etsa03-2020/basicmeleebot)
 [![CodeScene Code Health](https://codescene.io/projects/7292/status-badges/code-health)](https://codescene.io/projects/7292)
