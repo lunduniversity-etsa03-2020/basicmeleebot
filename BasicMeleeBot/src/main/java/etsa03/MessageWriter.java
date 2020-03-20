@@ -52,7 +52,7 @@ public class MessageWriter {
 		enemyPosCount = 0;
 		targetEnemy = new String();
 		targetPos = new String();
-		moveTo = new String();
+		moveTo = new String(); // tmp
 	}
 	
 	/**
