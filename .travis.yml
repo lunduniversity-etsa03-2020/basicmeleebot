@@ -20,5 +20,5 @@ script:
  - ./gradlew jacocoTestReport
 
 after_script:
- - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage build/customJacocoReportDir/test/jacocoTestReport.xml --input-type jacoco
- - ./cc-test-reporter upload-coverage --add-prefix /BasicMeleeBot
+ - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage build/customJacocoReportDir/test/jacocoTestReport.xml --input-type jacoco --prefix /BasicMeleeBot
+ - ./cc-test-reporter upload-coverage
