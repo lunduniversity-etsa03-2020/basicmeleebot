@@ -163,7 +163,7 @@ public class MessageReader {
 	 * @return an array of values
 	 */
 	private String[] getValues(String lineName) {
-		//We first count the number of lines starting with the lineName
+		//We first count the number of lines starting with the lineName.
 		//Then we construct an array of values and return it.
 		String prefix = lineName + ";";
 		int count = 0;
