@@ -13,7 +13,7 @@ before_install:
  - chmod +x gradlew
  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
  - chmod +x ./cc-test-reporter
- - ./cc-test-reporter before-build --add-prefix /BasicMeleeBot
+ - ./cc-test-reporter before-build
   
 script:
  - ./gradlew build
@@ -21,4 +21,4 @@ script:
 
 after_script:
  - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage build/customJacocoReportDir/test/jacocoTestReport.xml --input-type jacoco
- - ./cc-test-reporter upload-coverage
+ - ./cc-test-reporter upload-coverage --add-prefix /BasicMeleeBot
